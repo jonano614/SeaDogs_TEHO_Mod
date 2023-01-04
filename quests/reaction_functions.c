@@ -21826,7 +21826,7 @@ void FMQ_Count() // подсчет успешно выполненных
 // --> ФМК-Гваделупа
 void FMQG_Activation(string qName) // 
 {
-	if (CheckAttribute(pchar, "questTemp.HWIC") || sti(pchar.rank) > 12 || pchar.Ship.Type == SHIP_NOTUSED) return;
+	if (CheckAttribute(pchar, "questTemp.HWIC") || pchar.Ship.Type == SHIP_NOTUSED) return;	// level restriction is removed sti(pchar.rank) > 12
 	chrDisableReloadToLocation = true;//закрыть локацию
 	pchar.GenQuest.Hunter2Pause = true; // ОЗГи на паузу
 	sld = GetCharacter(NPC_GenerateCharacter("FMQG_pass_1", "q_citizen_1", "man", "man", 10, FRANCE, -1, false, "soldier"));
@@ -22301,7 +22301,7 @@ void FMQG_ClearBox(string qName) //
 void FMQM_Activation(string qName) // старт
 {
 	if(!GetDLCenabled(DLC_APPID_2)) return;
-	if (CheckAttribute(pchar, "questTemp.HWIC") || sti(pchar.rank) > 12 || pchar.Ship.Type == SHIP_NOTUSED) return;
+	if (CheckAttribute(pchar, "questTemp.HWIC") || pchar.Ship.Type == SHIP_NOTUSED) return;	// // level restriction is removed sti(pchar.rank) > 12
 	chrDisableReloadToLocation = true;//закрыть локацию
 	pchar.GenQuest.Hunter2Pause = true; // ОЗГи на паузу
 	sld = GetCharacter(NPC_GenerateCharacter("FMQM_carpenter", "citiz_25", "man", "man", 10, FRANCE, 0, false, "soldier"));
@@ -22850,7 +22850,7 @@ void FMQM_BattleFinal(string qName) //
 void FMQN_Activation(string qName) // 
 {
 	if(!GetDLCenabled(DLC_APPID_2)) return;
-	if (CheckAttribute(pchar, "questTemp.HWIC") || sti(pchar.rank) > 12 || pchar.Ship.Type == SHIP_NOTUSED) return;
+	if (CheckAttribute(pchar, "questTemp.HWIC") || pchar.Ship.Type == SHIP_NOTUSED) return;	// level restriction is removed sti(pchar.rank) > 12
 	int iRank = sti(pchar.rank)+MOD_SKILL_ENEMY_RATE+5;
 	int iScl = 30 + 3*sti(pchar.rank);
 	chrDisableReloadToLocation = true;//закрыть локацию
@@ -23769,7 +23769,7 @@ void FMQN_EnglandComplete() // за Англию завершение
 void FMQT_Activation(string qName) // 
 {
 	if(!GetDLCenabled(DLC_APPID_2)) return;
-	if (CheckAttribute(pchar, "questTemp.HWIC") || sti(pchar.rank) > 12) return;
+	if (CheckAttribute(pchar, "questTemp.HWIC")) return;	// level restriction is removed sti(pchar.rank) > 12
 	chrDisableReloadToLocation = true;//закрыть локацию
 	pchar.GenQuest.Hunter2Pause = true; // ОЗГи на паузу
 	sld = GetCharacter(NPC_GenerateCharacter("FMQT_girl", "women_11", "woman", "towngirl", 5, FRANCE, -1, false, "quest"));
@@ -24125,7 +24125,7 @@ void FMQT_ClearWifeChest(string qName) //
 void FMQP_Activation(string qName) // 
 {
 	if(!GetDLCenabled(DLC_APPID_2)) return;
-	if (CheckAttribute(pchar, "questTemp.HWIC") || sti(pchar.rank) > 12 || pchar.Ship.Type == SHIP_NOTUSED) return;
+	if (CheckAttribute(pchar, "questTemp.HWIC") || pchar.Ship.Type == SHIP_NOTUSED) return;	// level restriction is removed sti(pchar.rank) > 12
 	pchar.quest.FMQP_begin.win_condition.l1 = "location";
 	pchar.quest.FMQP_begin.win_condition.l1.location = "PortPax_tavern";
 	pchar.quest.FMQP_begin.win_condition.l2 = "Hour";
@@ -24505,7 +24505,7 @@ void FMQP_LateFinal(string qName) //
 void FMQL_Start() // накручиваем гида и выдаем ему шняву
 {
     if(!GetDLCenabled(DLC_APPID_2)) return;
-	if (CheckAttribute(pchar, "questTemp.HWIC") || sti(pchar.rank) > 14) return;
+	if (CheckAttribute(pchar, "questTemp.HWIC")) return;	// level restriction is removed sti(pchar.rank) > 14
 	sld = GetCharacter(NPC_GenerateCharacter("Guide_y", "Guide_1", "man", "man", 10, FRANCE, -1, true, "officer"));
 	FantomMakeSmallSailor(sld, SHIP_SHNYAVA, "Фудройян", CANNON_TYPE_CANNON_LBS16, 45, 45, 45, 45, 45);
 	sld.name = "Грегуар";
@@ -24567,19 +24567,19 @@ void FMQL_Start() // накручиваем гида и выдаем ему шн
 	ChangeCharacterAddressGroup(sld, "Fortfrance_town", "quest", "quest1");
 	LAi_SetStayType(sld);
 	LAi_group_MoveCharacter(sld, "FRANCE_CITIZENS");
-	// при 13 ранге - трем гида
+	/*// при 13 ранге - трем гида	level restriction is removed
 	pchar.quest.FMQL_delete_guide.win_condition.l1 = "Rank";
 	pchar.quest.FMQL_delete_guide.win_condition.l1.value = 15;
 	pchar.quest.FMQL_delete_guide.win_condition.l1.operation = ">=";
-	pchar.quest.FMQL_delete_guide.function = "FMQL_DeleteGuide";
+	pchar.quest.FMQL_delete_guide.function = "FMQL_DeleteGuide";*/
 }
 
-void FMQL_DeleteGuide(string qName) // удаляем гида на 15 ранге
+/*void FMQL_DeleteGuide(string qName) // удаляем гида на 15 ранге
 {
 	sld = CharacterFromID("Guide_y");
 	ChangeCharacterAddressGroup(sld, "none", "", "");
 	sld.lifeday = 0;
-}
+}*/
 
 void FMQL_Begin() // 
 {
