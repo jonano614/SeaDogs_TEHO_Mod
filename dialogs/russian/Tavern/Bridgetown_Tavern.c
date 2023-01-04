@@ -99,13 +99,13 @@ void ProcessCommonDialogEvent(ref NPChar, aref Link, aref NextDiag)
 				link.l1.go = "exit";
 				break;
 			}
-			if(sti(Pchar.rank) > 15)//высокий ранг
+			/*if(sti(Pchar.rank) > 15)//высокий ранг		level restriction is removed
 			{
 				dialog.text = "Вы слишком известны на Архипелаге, кэп. Не думаю, что вам будут интересны мои задания.";
 				link.l1 = "Ладно, раз не интересны - значит, не интересны. Прощайте.";
 				link.l1.go = "exit";
 				break;
-			}
+			}*/
 			PlaySound("VOICE\Russian\hambit\Ercule Tongzag-02.wav");
 			dialog.text = "Хм... Вообще-то вы вовремя, у меня как раз есть одно дело, которое требует незамедлительного выполнения. Если хорошо себя покажете, познакомлю вас с очень влиятельными людьми. Теперь слушайте, что от вас требуется.";
 			link.l1 = "Я весь внимание.";
