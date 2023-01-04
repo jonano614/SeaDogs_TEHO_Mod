@@ -1503,7 +1503,7 @@ void ProcessDialogEvent()
 		
 		case "Tasks":
 			//--> Jason генератор Поиск корабля
-			if (drand(4) == 2 && !CheckAttribute(pchar, "GenQuest.Findship.Shipyarder") && sti(pchar.rank) < 19)
+			if (drand(4) == 2 && !CheckAttribute(pchar, "GenQuest.Findship.Shipyarder"))	//level restriction is removed sti(pchar.rank) < 19
 			{
 				if (!CheckAttribute(npchar, "Findship") || GetNpcQuestPastDayParam(npchar, "Findship") >= 60) 
 				{
@@ -1521,7 +1521,7 @@ void ProcessDialogEvent()
 				
 			}//<-- генератор Поиск корабля
 			//Jason --> генератор Неудачливый вор
-			if (drand(6) == 1 && !CheckAttribute(pchar, "GenQuest.Device.Shipyarder") && sti(pchar.rank) < 10 && npchar.city != "Charles")
+			if (drand(6) == 1 && !CheckAttribute(pchar, "GenQuest.Device.Shipyarder") && npchar.city != "Charles")		//level restriction is removed sti(pchar.rank) < 10
 			{
 				if (!CheckAttribute(npchar, "Device")) 
 				{

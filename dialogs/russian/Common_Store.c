@@ -708,7 +708,7 @@ void ProcessDialogEvent()
 			iTest = 0;			
 			
 //Jason --> ----------------------------------мини-квест Бесчестный конкурент------------------------------------
-			if (!CheckAttribute(pchar, "questTemp.Shadowtrader") && sti(npchar.nation) != PIRATE && sti(pchar.rank) < 6 && drand(2) == 0) 
+			if (!CheckAttribute(pchar, "questTemp.Shadowtrader") && sti(npchar.nation) != PIRATE && drand(2) == 0)	// level restriction is removed sti(pchar.rank) < 6
 			{
 				dialog.text = "Капитан, я хочу попросить вас об одной услуге. Не поможете мне?";
 				link.l1 = "Чем я могу вам помочь?"; 
@@ -808,7 +808,7 @@ void ProcessDialogEvent()
 			// <-- генератор Неудачливый вор
 			
 			//Jason --> генератор Место под солнцем
-			if (!CheckAttribute(pchar, "GenQuest.Sunplace.Trader") && !CheckAttribute(npchar, "quest.Sunplace") && sti(npchar.nation) != PIRATE && sti(pchar.rank) < 20 && drand(4) == 4) 
+			if (!CheckAttribute(pchar, "GenQuest.Sunplace.Trader") && !CheckAttribute(npchar, "quest.Sunplace") && sti(npchar.nation) != PIRATE && drand(4) == 4) 	// level restriction is removed sti(pchar.rank) < 20
 			{
 				dialog.text = "Капитан, я хочу попросить вас оказать мне одну услугу. За ее выполнение я хорошо заплачу.";
 				link.l1 = "Интересно. Рассказывайте, что там у вас?"; 
